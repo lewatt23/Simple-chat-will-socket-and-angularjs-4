@@ -1,0 +1,35 @@
+  <!-- Menu Bar -->
+  <div class="ui menu">
+    <div class="ui container">
+      <a *ngIf="!checkifnotlogin()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="header item">
+       Login
+      </a>
+      <a *ngIf="!checkifnotlogin()" routerLink="/register"  routerLinkActive="active" class="header item">
+        Register
+       </a>
+       <a *ngIf="checkifnotlogin()" (click)='logout()' routerLink="/login"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="header item">
+        Logout
+       </a>
+       <a *ngIf="checkifnotlogin()"   routerLink="/register"  routerLinkActive="active" class="header item">
+        
+        
+            <img class="ui mini circular image" src="/../assets/elyse.png">
+            <div class="content">
+              &nbsp;
+              <div class="ui sub header">   &nbsp;   &nbsp; Welcome {{ username }}</div>
+              
+            </div>
+          
+
+
+       </a>
+      <div class="header item borderless">
+        <h3 class="ui header">
+          Simple chat  application
+        </h3>
+      
+         
+        
+      </div>
+    </div>
+  </div>

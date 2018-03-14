@@ -1,0 +1,32 @@
+<div class="ui container text" >
+
+<form class="ui form segment" [formGroup]="createLogin"
+(ngSubmit)="onSubmitLogin(createLogin)"
+
+[class.error]="!createLogin.valid && createLogin.touched">
+    
+    <div class="field">
+      <label>Username</label>
+      <input placeholder="Username" name="username" formControlName="username" type="text">
+      <label *ngIf="createLogin.controls['username'].hasError('required')"  class="ui error message">
+          Must be filled. </label>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input name="password" formControlName="password" type="password" >
+      <label *ngIf="createLogin.controls['password'].hasError('required')"  class="ui error message">
+          Must be filled. </label>
+    </div>
+    <div class="inline field">
+        <label *ngIf="usernameNotfound"  class="ui error message">
+            sorry user name  or password not correct . </label>
+      <div class="ui checkbox">
+        <input name="terms" type="checkbox">
+        <label>Keep me login</label>
+      </div>
+    </div>
+    
+    <button class="ui primary submit button">Login</button>
+ 
+  </form>
+  </div>

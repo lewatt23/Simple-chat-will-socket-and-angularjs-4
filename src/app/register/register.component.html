@@ -1,0 +1,71 @@
+<div class="ui container text" >
+<form class="ui form segment" [formGroup]="chatRegister"
+ [class.error]="!chatRegister.valid && chatRegister.touched"
+ (ngSubmit)="onSubmitRegister(chatRegister)"
+ >
+    <div class="two fields">
+      <div class="field">
+        <label>First Name</label>
+        <input  placeholder="First Name"  name="Firstname" type="text"  formControlName="Firstname">
+        <label *ngIf="chatRegister.controls['Firstname'].hasError('required')"  class="ui error message">
+           Must be filled. </label>
+        
+      </div>
+      <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" name="Lastname" type="text"  formControlName="Lastname">
+          <label *ngIf="chatRegister.controls['Lastname'].hasError('required')"  class="ui error message">
+              Must be filled. </label>
+        </div>
+    </div>
+
+    <div class="two fields">
+        <div class="field">
+          <label>Age</label>
+          <input placeholder="Age" name="Age" type="text"  formControlName="Age">
+          <label *ngIf="chatRegister.controls['Age'].hasError('required')"  class="ui error message">
+              Must be filled. </label>
+              <label *ngIf="chatRegister.controls['Age'].hasError('notAge')"  class="ui error message">
+                  age must be  number only. </label>
+        </div>
+        <div class="field">
+          <label  >Gender</label>
+            <select class="ui dropdown"  formControlName="Gender">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+              </select>
+              <label *ngIf="chatRegister.controls['Gender'].hasError('required')"  class="ui error message">
+                  Must be filled. </label>
+        </div>
+      </div>
+
+ 
+    
+    <div class="field">
+      <label>Username</label>
+      <input placeholder="Username" name="username" type="text"  formControlName="Username">
+      <label *ngIf="chatRegister.controls['Username'].hasError('required')"  class="ui error message">
+          Must be filled. </label>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input name="password" type="password"  formControlName="Password">
+      <label *ngIf="chatRegister.controls['Password'].hasError('partten')"  class="ui error message">
+          The string must contain at least 1 lowercase alphabetical character. </label>
+    </div>
+    <div class="field">
+        <label>Retype  password</label>
+        <input name="repassword" type="password"  formControlName="Retypepassword">
+        <label *ngIf="chatRegister.controls['Password'].hasError('partten')"  class="ui error message">
+            The string must contain at least 1 lowercase alphabetical character. </label>
+      </div>
+    <div class="inline field">
+      <div class="ui checkbox">
+        <input name="terms" type="checkbox">
+        <label>I agree to the terms and conditions</label>
+      </div>
+    </div>
+    <button class="ui primary submit button"> Register</button>
+ 
+  </form>
+  </div>

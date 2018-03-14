@@ -1,0 +1,48 @@
+<div class="ui grid" style="margin-top:60px;">
+    <div class="ui segment ten wide column">
+        <div  class="ui comments">
+            <div *ngFor="let chat of messages" class="comment">
+              <a class="avatar">
+                <img src="/../assets/images/avatars/female-avatar-1.png">
+              </a>
+              <div class="content">
+                <a class="author">{{chat.Author}}</a>
+                <div class="metadata">
+                  <div class="date"> send at  {{chat.Time | date:'shortTime'}}</div>
+                </div>
+                <div class="text">
+                 {{chat.Message}}
+                </div>
+                <div class="actions">
+                  <a class="reply">Reply</a>
+                </div>
+              </div>
+            </div>
+            <form class="ui reply form" [formGroup]="createmessage"
+            (ngSubmit)="sendMessage(textareavalue.value)">
+              <div class="field">
+                <textarea name="messages" #textareavalue   type="text"
+                placeholder="start texting"
+                ></textarea>
+              </div>
+              <button  class="ui primary submit labeled icon button">
+                <i class="icon edit"></i> Sent  message
+              </button>
+            </form>
+          </div>
+    </div>
+    <div class="six wide column">
+        <div *ngFor="let Author of Users"  class="ui cards">
+            <div class="card">
+              <div class="content">
+                <img class="right floated mini ui image" src="/../assets/images/avatars/stanly.png">
+                <div class="header">
+                   {{Author}} just joint!
+                </div>
+                
+              </div>
+             
+            </div>
+          </div>
+    </div>
+  </div>
